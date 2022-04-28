@@ -1,0 +1,314 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+$bg: #FEF5DF;
+body{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.priceActual,.Medio,.Low,.High {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    height: 5rem;
+    width: 10rem;
+}
+.Price,.priceMedio,.priceLow,.priceHigh {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+}
+.priceActual h2,.Medio h2,.Low h2,.High h2 {
+    font-size: .7rem;
+    line-height: 1.5;
+
+}
+
+.priceActual p,.Medio p,.Low p,.High {
+    font-size: .7rem;
+    color: #000;
+}
+
+
+
+// card 
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    margin: 1rem;
+
+}
+
+.container {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    background-image: url(/images/horno.jpg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    -webkit-box-shadow: 0 0 5px #000;
+          box-shadow: 0 0 5px #000;
+    }
+  
+  .overlay {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+    background: rgba(77, 77, 77, .9);
+    color: $bg;
+    opacity: 0;
+    transition: all 0.5s;
+    border-radius: 5px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  
+  .items {
+    padding-left: 1rem;
+  }
+  
+  .head {
+    font-size: 1.5rem;
+    letter-spacing: 1px; 
+    transform: translateY(40px);
+    transition: all 0.7s;
+    hr {
+      display: block;
+      width: 0;
+      border: none;
+      border-bottom: solid 2px $bg;
+      position: absolute;
+      transition: all .5s;
+    }
+  }
+  
+  .whValue {
+    font-size: .8rem;
+    line-height: 1.5;
+    font-weight: bold;  
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s;
+    padding-right: 1rem;
+    .wh{
+        font-size: 1rem;
+        
+    }
+    p {
+      color: $bg;
+      font-size: .7rem;
+    }
+  }
+  
+  .cart {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s;
+    p{
+        font-size: 1rem;
+    }
+    span {
+        font-size: .7rem;
+        padding-left: 1.5rem;
+        span{
+            font-size: 2rem;
+            padding-right: .3rem;
+            letter-spacing: 1px;
+        }
+    }
+  }
+  
+  .container:hover .overlay {
+    opacity: 1;
+    & .head {
+      transform: translateY(0px);
+    }
+    
+    & hr {
+      width: 120px;
+      transition-delay: 0.4s;
+    }
+    
+    & .whValue {
+      transform: translateY(0px);
+      transition-delay: 0.3s;
+      opacity: 1;
+    }
+    
+    & .cart {
+      transform: translateY(0px);
+      transition-delay: 0.6s;
+      opacity: 1;
+    }
+  }
+
+
+  .Griddle{
+    background-image: url(/images/Griddle.jpg);
+}
+.Griddle:hover .overlay {
+    & hr {
+        width: 80px;
+        transition-delay: 0.4s;
+      }
+}
+
+.Dishwasher{
+    background-image: url(/images/Dishwasher.jpg);
+}
+
+.Dishwasher:hover .overlay {
+    & hr {
+        width: 115px;
+        transition-delay: 0.4s;
+      }
+}
+
+.Desktop{
+    background-image: url(/images/Desktop.jpg);
+}
+
+.Desktop:hover .overlay {
+    & hr {
+        width: 100px;
+        transition-delay: 0.4s;
+      }
+}
+
+.Hairdryer{
+    background-image: url(/images/Hairdryer.jpg);
+}
+
+.Hairdryer:hover .overlay {
+    & hr {
+        width: 75px;
+        transition-delay: 0.4s;
+      }
+}
+
+.CeilingFan{
+    background-image: url(/images/Ceilingfan.webp);
+}
+
+
+.CeilingFan:hover .overlay {
+    & hr {
+        width: 55px;
+        transition-delay: 0.4s;
+      }
+}
+
+.Toaster{
+    background-image: url(/images/Toaster.jpeg);
+}
+
+
+.Toaster:hover .overlay {
+    & hr {
+        width: 103px;
+        transition-delay: 0.4s;
+      }
+}
+
+.Refrigerator{
+    background-image: url(/images/Refrigerator.webp);
+}
+
+
+.Refrigerator:hover .overlay {
+    & hr {
+        width: 135px;
+        transition-delay: 0.4s;
+      }
+}
+
+.CoffeeMaker{
+    background-image: url(/images/Coffeemaker.webp);
+}
+
+
+
+.CoffeeMaker:hover .overlay {
+    & hr {
+        width: 90px;
+        transition-delay: 0.4s;
+      }
+}
+
+.TvLed{
+    background-image: url(/images/TVLED.jpeg);
+}
+
+
+
+.TvLed:hover .overlay {
+    & hr {
+        width: 90px;
+        transition-delay: 0.4s;
+      }
+}
+
+.Dryer{
+    background-image: url(/images/Dryer.webp);
+}
+
+
+
+.Dryer:hover .overlay {
+    & hr {
+        width: 180px;
+        transition-delay: 0.4s;
+      }
+}
+
+.Heating{
+    background-image: url(/images/Heating.jpg);
+}
+
+
+
+.Heating:hover .overlay {
+    & hr {
+        width: 123px;
+        transition-delay: 0.4s;
+      }
+}
+.AirConditioning{
+    background-image: url(/images/Airconditioning.jpg);
+}
+
+
+
+.AirConditioning:hover .overlay {
+    & hr {
+        width: 150px;
+        transition-delay: 0.4s;
+      }
+}
