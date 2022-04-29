@@ -3,77 +3,257 @@
     margin: 0;
     box-sizing: border-box;
     list-style: none;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
 }
-$bg: #FEF5DF;
+$main-color: #E3FDFD;
+$main-color-dark: #71C9CE;
+$main-color-light: #A6E3E9;
+$main-color-dark-light: #CBF1F5;
+$main-color-green: #A5E1AD;
+$main-color-red: #DA7F8F;
+$card-background-color: rgba(	203, 241, 245, .9);
 body{
+    width: 100vw;
+    background-color: $main-color;
+}
+
+
+header{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  @media (min-width: 768px){
+    height: 100vh;
+  }
+  .position{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    h1{
+      font-size: 7vmin;
+      padding: 0 0 1rem 0;
+      color: $main-color-dark;
+    }
+    span{
+      font-size: 5vmin;
+      color: $main-color-dark;
+    }
+  }
+  
+   
+    .hero{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 1rem;
+        padding: 1rem;
+        @media (min-width: 768px){
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .priceActual{
+          height: 7rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border: 1px solid $main-color-dark;
+          border-radius: 1rem;
+          background-color: $main-color-dark-light;
+          &:hover{
+            box-shadow: 0 0 0.5rem 0.5rem $main-color-dark;
+          }
+          h2{
+            color: $main-color-dark;
+            font-size: 3vmin;
+            font-weight: 700;
+            border-bottom: 1px solid ;
+          }
+          span{
+            font-size: 3vmin;
+            padding-top: 1rem;
+            color: $main-color-dark;
+            font-weight: 500;
+          }
+          p{
+            padding: 1rem 0 0 0;
+            font-size: 2vmin;
+            font-weight: 700;
+            color: $main-color-dark;
+            span{
+              font-size: 3.5vmin;
+              font-weight: 700;
+              color: $main-color-dark;
+            }
+          }
+        }
+
+        .Medio{
+          height: 7rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border: 1px solid $main-color-dark;
+          border-radius: 1rem;
+          background-color: $main-color-dark-light;
+          &:hover{
+            box-shadow: 0 0 0.5rem 0.5rem $main-color-dark;
+          }
+          h2{
+            color: $main-color-dark;
+            font-size: 3vmin;
+            font-weight: 700;
+            border-bottom: 1px solid ;
+            @media (min-width: 1024px){
+              font-size: 2.8vmin;
+            }
+          }
+          span{
+            font-size: 3vmin;
+            padding-top: 1rem;
+            color: $main-color-dark;
+          }
+          p{
+            font-size: 2vmin;
+            font-weight: 700;
+            padding: 1rem 0 0 0;
+            color: $main-color-dark;
+            span{
+              font-size: 3.5vmin;
+              font-weight: 700;
+              color: $main-color-dark;
+            }
+          }
+        }
+
+        .Low{
+          height: 7rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border: 1px solid $main-color-dark;
+          border-radius: 1rem;
+          background-color: $main-color-dark-light;
+          &:hover{
+            box-shadow: 0 0 0.5rem 0.5rem $main-color-dark;
+          }
+          h2{
+            color: $main-color-dark;
+            font-size: 3vmin;
+            font-weight: 700;
+            border-bottom: 1px solid ;
+            @media (min-width: 1024px){
+              font-size: 2.4vmin;
+            }
+          }
+          span{
+            font-size: 3vmin;
+            padding-top: 1rem;
+            color: $main-color-dark;
+          }
+          p{
+            font-size: 2vmin;
+            font-weight: 700;
+            padding: 1rem 0 0 0;
+            color: $main-color-green;
+            span{
+              font-size: 3.5vmin;
+              font-weight: 700;
+              padding: 0 .3rem;
+              color: $main-color-green;
+            }
+            i{
+              font-size: 3vmin;
+              
+            }
+          }
+        }
+        .High{
+          height: 7rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border: 1px solid $main-color-dark;
+          border-radius: 1rem;
+          background-color: $main-color-dark-light;
+          &:hover{
+            box-shadow: 0 0 0.5rem 0.5rem $main-color-dark;
+          }
+          h2{
+            font-size: 3vmin;
+            font-weight: 700;
+            color: $main-color-dark;
+            border-bottom: 1px solid ;
+            @media (min-width: 1024px){
+              font-size: 2.5vmin;
+            }
+          }
+          span{
+            font-size: 3vmin;
+            padding-top: 1rem;
+            color: $main-color-dark;
+          }
+          p{
+            font-size: 2vmin;
+            font-weight: 700;
+            padding: 1rem 0 0 0;
+            color: $main-color-red;
+            span{
+              font-size: 3.5vmin;
+              font-weight: 700;
+              padding: 0 .3rem;
+              color: $main-color-red;
+            }
+            i{
+              font-size: 3vmin;
+            }
+          }
+        }
+    }
     
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.hero{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-
-}
-
-.priceActual,.Medio,.Low,.High {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
-    height: 5rem;
-    width: 10rem;
-}
-.Price,.priceMedio,.priceLow,.priceHigh {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #000;
-}
-.priceActual h2,.Medio h2,.Low h2,.High h2 {
-    font-size: .7rem;
-    line-height: 1.5;
-
-}
-
-.priceActual p,.Medio p,.Low p,.High {
-    font-size: .7rem;
-    color: #000;
 }
 
 
 
-// card 
 
+
+/* Start Cards */ 
+.title{
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem 1rem 1rem; 
+  color: $main-color-dark;
+}
 .cards{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1rem;
-    margin: 1rem;
-
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: .5rem;
+    padding: 1rem 6rem;
+    @media (max-width: 768px){
+      padding: 1rem 1rem;
+    }
 }
 
 .container {
-    width: 200px;
+    width: 100%;
     height: 200px;
     border-radius: 5px;
     background-image: url(/images/horno.jpg);
-    background-color: black;
+    background-color: $main-color-dark;
     background-size: cover;
     background-position: center;
-    -webkit-box-shadow: 0 0 5px #000;
-          box-shadow: 0 0 5px #000;
+    -webkit-box-shadow: 0 0 5px $main-color-dark;
+          box-shadow: 0 0 5px $main-color-dark;
+          color: $main-color-dark;
     }
   
   .overlay {
@@ -81,8 +261,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr 2fr;
-    background: rgba(77, 77, 77, .9);
-    color: $bg;
+    background: $card-background-color;
     opacity: 0;
     transition: all 0.5s;
     border-radius: 5px;
@@ -103,7 +282,7 @@ body{
       display: block;
       width: 0;
       border: none;
-      border-bottom: solid 2px $bg;
+      border-bottom: solid 2px $main-color;
       position: absolute;
       transition: all .5s;
     }
@@ -112,17 +291,18 @@ body{
   .whValue {
     font-size: .8rem;
     line-height: 1.5;
-    font-weight: bold;  
+    font-weight: 700;  
     opacity: 0;
     transform: translateY(40px);
     transition: all 0.7s;
     padding-right: 1rem;
+    color: $main-color-dark;
     .wh{
         font-size: 1rem;
+        color: $main-color-dark;
         
     }
     p {
-      color: $bg;
       font-size: .7rem;
     }
   }
@@ -152,8 +332,9 @@ body{
     }
     
     & hr {
-      width: 120px;
+      width: 50%;
       transition-delay: 0.4s;
+      
     }
     
     & .whValue {
@@ -175,7 +356,7 @@ body{
 }
 .Griddle:hover .overlay {
     & hr {
-        width: 80px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -186,7 +367,7 @@ body{
 
 .Dishwasher:hover .overlay {
     & hr {
-        width: 115px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -197,7 +378,7 @@ body{
 
 .Desktop:hover .overlay {
     & hr {
-        width: 100px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -220,22 +401,11 @@ body{
 
 .CeilingFan:hover .overlay {
     & hr {
-        width: 55px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
 
-.Toaster{
-    background-image: url(/images/Toaster.jpeg);
-}
-
-
-.Toaster:hover .overlay {
-    & hr {
-        width: 103px;
-        transition-delay: 0.4s;
-      }
-}
 
 .Refrigerator{
     background-image: url(/images/Refrigerator.webp);
@@ -244,7 +414,7 @@ body{
 
 .Refrigerator:hover .overlay {
     & hr {
-        width: 135px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -257,7 +427,7 @@ body{
 
 .CoffeeMaker:hover .overlay {
     & hr {
-        width: 90px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -270,7 +440,7 @@ body{
 
 .TvLed:hover .overlay {
     & hr {
-        width: 90px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -283,7 +453,7 @@ body{
 
 .Dryer:hover .overlay {
     & hr {
-        width: 180px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -296,7 +466,7 @@ body{
 
 .Heating:hover .overlay {
     & hr {
-        width: 123px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
@@ -308,7 +478,8 @@ body{
 
 .AirConditioning:hover .overlay {
     & hr {
-        width: 150px;
+        width: 50%;
         transition-delay: 0.4s;
       }
 }
+/* End Cards */

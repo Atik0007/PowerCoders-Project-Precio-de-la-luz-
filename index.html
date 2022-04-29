@@ -6,28 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aed4c118c0.js" crossorigin="anonymous"></script>
     <title>Precio de la luz</title>
 </head>
 <main>
-    <section class="hero">
-        <div class="priceActual">
-            <h2>PRECIO A LAS : <span class="time"></span></h2>
-            <p><span class="Price"></span> €/kWh</p>
+    <header>
+        <div class="position">
+            <h1>Precio de la luz por horas</h1>
+            <span class="dayActual"></span>
         </div>
-        <div class="Medio">
-            <h2>PRECIO MEDIO DEL DÍA</h2>
-            <p><span class="priceMedio"></span>€/kWh</p>
-        </div>
-        <div class="Low">
-            <h2>PRECIO MÁS BAJO DEL DÍA</h2>
-            <p><span class="priceLow"></span> €/kWh</p>
-        </div>
-        <div class="High">
-            <h2>PRECIO MÁS ALTO DEL DÍA</h2>
-            <p><span class="priceHigh"></span> €/kWh</p>
-        </div>
+        <section class="hero">
+            <div class="priceActual">
+                <h2>PRECIO ACTUAL</h2>
+                <span class="time"></span>
+                <p><span class="Price"></span> €/kWh</p>
+            </div>
+            <div class="Medio">
+                <h2>PRECIO MEDIO DEL DÍA</h2>
+                <span class="date"></span>
+                <p><span class="priceMedio"></span>€/kWh</p>
+            </div>
+            <div class="Low">
+                <h2>PRECIO MÁS BAJO DEL DÍA</h2>
+                <span class="lowDay"></span>
+                <p><i class="fas fa-caret-down"></i><span class="priceLow"></span> €/kWh</p>
+            </div>
+            <div class="High">
+                <h2>PRECIO MÁS ALTO DEL DÍA</h2>
+                <span class="highDay"></span>
+                <p><i class="fas fa-caret-up"></i><span class="priceHigh"></span> €/kWh</p>
+            </div>
 
-    </section>
+        </section>
+    </header>
+
+    <div class="title">
+        <h2>aparatos eléctricos junto con el precio calculado de
+            tenerlos funcionando una hora :</h2>
+    </div>
     <section class="cards">
         <div class="container">
             <div class="overlay">
@@ -132,24 +151,6 @@
                     <p>Precio actual de cada hora </p>
                     <span>
                         <p><span class="whPrice">35</span>€/kWh</p>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="container Toaster">
-            <div class="overlay">
-                <div class="items head">
-                    <p>Tostadora</p>
-                    <hr>
-                </div>
-                <div class="items whValue">
-                    <p>Gasta <span class="wh">1,100</span>W en cada hora </p>
-                </div>
-                <div class="items cart">
-                    <p>Precio actual de cada hora </p>
-                    <span>
-                        <p><span class="whPrice">1100</span>€/kWh</p>
                     </span>
                 </div>
             </div>

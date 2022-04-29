@@ -4,96 +4,356 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   list-style: none;
+  font-size: 18px;
+  font-family: 'Rubik', sans-serif;
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 100vw;
+  background-color: #E3FDFD;
 }
 
-.hero {
-  width: 100%;
+header {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.priceActual, .Medio, .Low, .High {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  header {
+    height: 100vh;
+  }
+}
+
+header .position {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 1rem;
-  height: 5rem;
-  width: 10rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.Price, .priceMedio, .priceLow, .priceHigh {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #000;
+header .position h1 {
+  font-size: 7vmin;
+  padding: 0 0 1rem 0;
+  color: #71C9CE;
 }
 
-.priceActual h2, .Medio h2, .Low h2, .High h2 {
-  font-size: .7rem;
-  line-height: 1.5;
+header .position span {
+  font-size: 5vmin;
+  color: #71C9CE;
 }
 
-.priceActual p, .Medio p, .Low p, .High {
-  font-size: .7rem;
-  color: #000;
-}
-
-.cards {
+header .hero {
+  width: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
-  margin: 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  header .hero {
+    -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+header .hero .priceActual {
+  height: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #71C9CE;
+  border-radius: 1rem;
+  background-color: #CBF1F5;
+}
+
+header .hero .priceActual:hover {
+  -webkit-box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+          box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+}
+
+header .hero .priceActual h2 {
+  color: #71C9CE;
+  font-size: 3vmin;
+  font-weight: 700;
+  border-bottom: 1px solid;
+}
+
+header .hero .priceActual span {
+  font-size: 3vmin;
+  padding-top: 1rem;
+  color: #71C9CE;
+  font-weight: 500;
+}
+
+header .hero .priceActual p {
+  padding: 1rem 0 0 0;
+  font-size: 2vmin;
+  font-weight: 700;
+  color: #71C9CE;
+}
+
+header .hero .priceActual p span {
+  font-size: 3.5vmin;
+  font-weight: 700;
+  color: #71C9CE;
+}
+
+header .hero .Medio {
+  height: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #71C9CE;
+  border-radius: 1rem;
+  background-color: #CBF1F5;
+}
+
+header .hero .Medio:hover {
+  -webkit-box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+          box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+}
+
+header .hero .Medio h2 {
+  color: #71C9CE;
+  font-size: 3vmin;
+  font-weight: 700;
+  border-bottom: 1px solid;
+}
+
+@media (min-width: 1024px) {
+  header .hero .Medio h2 {
+    font-size: 2.8vmin;
+  }
+}
+
+header .hero .Medio span {
+  font-size: 3vmin;
+  padding-top: 1rem;
+  color: #71C9CE;
+}
+
+header .hero .Medio p {
+  font-size: 2vmin;
+  font-weight: 700;
+  padding: 1rem 0 0 0;
+  color: #71C9CE;
+}
+
+header .hero .Medio p span {
+  font-size: 3.5vmin;
+  font-weight: 700;
+  color: #71C9CE;
+}
+
+header .hero .Low {
+  height: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #71C9CE;
+  border-radius: 1rem;
+  background-color: #CBF1F5;
+}
+
+header .hero .Low:hover {
+  -webkit-box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+          box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+}
+
+header .hero .Low h2 {
+  color: #71C9CE;
+  font-size: 3vmin;
+  font-weight: 700;
+  border-bottom: 1px solid;
+}
+
+@media (min-width: 1024px) {
+  header .hero .Low h2 {
+    font-size: 2.4vmin;
+  }
+}
+
+header .hero .Low span {
+  font-size: 3vmin;
+  padding-top: 1rem;
+  color: #71C9CE;
+}
+
+header .hero .Low p {
+  font-size: 2vmin;
+  font-weight: 700;
+  padding: 1rem 0 0 0;
+  color: #A5E1AD;
+}
+
+header .hero .Low p span {
+  font-size: 3.5vmin;
+  font-weight: 700;
+  padding: 0 .3rem;
+  color: #A5E1AD;
+}
+
+header .hero .Low p i {
+  font-size: 3vmin;
+}
+
+header .hero .High {
+  height: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #71C9CE;
+  border-radius: 1rem;
+  background-color: #CBF1F5;
+}
+
+header .hero .High:hover {
+  -webkit-box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+          box-shadow: 0 0 0.5rem 0.5rem #71C9CE;
+}
+
+header .hero .High h2 {
+  font-size: 3vmin;
+  font-weight: 700;
+  color: #71C9CE;
+  border-bottom: 1px solid;
+}
+
+@media (min-width: 1024px) {
+  header .hero .High h2 {
+    font-size: 2.5vmin;
+  }
+}
+
+header .hero .High span {
+  font-size: 3vmin;
+  padding-top: 1rem;
+  color: #71C9CE;
+}
+
+header .hero .High p {
+  font-size: 2vmin;
+  font-weight: 700;
+  padding: 1rem 0 0 0;
+  color: #DA7F8F;
+}
+
+header .hero .High p span {
+  font-size: 3.5vmin;
+  font-weight: 700;
+  padding: 0 .3rem;
+  color: #DA7F8F;
+}
+
+header .hero .High p i {
+  font-size: 3vmin;
+}
+
+/* Start Cards */
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0 1rem 1rem 1rem;
+  color: #71C9CE;
+}
+
+.cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: .5rem;
+  padding: 1rem 6rem;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    padding: 1rem 1rem;
+  }
 }
 
 .container {
-  width: 200px;
+  width: 100%;
   height: 200px;
   border-radius: 5px;
   background-image: url(/images/horno.jpg);
-  background-color: black;
+  background-color: #71C9CE;
   background-size: cover;
   background-position: center;
-  -webkit-box-shadow: 0 0 5px #000;
-  box-shadow: 0 0 5px #000;
+  -webkit-box-shadow: 0 0 5px #71C9CE;
+  box-shadow: 0 0 5px #71C9CE;
+  color: #71C9CE;
 }
 
 .overlay {
@@ -103,8 +363,7 @@ body {
   display: grid;
   -ms-grid-rows: 1fr 1fr 2fr;
       grid-template-rows: 1fr 1fr 2fr;
-  background: rgba(77, 77, 77, 0.9);
-  color: #FEF5DF;
+  background: rgba(203, 241, 245, 0.9);
   opacity: 0;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -129,7 +388,7 @@ body {
   display: block;
   width: 0;
   border: none;
-  border-bottom: solid 2px #FEF5DF;
+  border-bottom: solid 2px #E3FDFD;
   position: absolute;
   -webkit-transition: all .5s;
   transition: all .5s;
@@ -138,21 +397,22 @@ body {
 .whValue {
   font-size: .8rem;
   line-height: 1.5;
-  font-weight: bold;
+  font-weight: 700;
   opacity: 0;
   -webkit-transform: translateY(40px);
           transform: translateY(40px);
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
   padding-right: 1rem;
+  color: #71C9CE;
 }
 
 .whValue .wh {
   font-size: 1rem;
+  color: #71C9CE;
 }
 
 .whValue p {
-  color: #FEF5DF;
   font-size: .7rem;
 }
 
@@ -189,7 +449,7 @@ body {
 }
 
 .container:hover .overlay hr {
-  width: 120px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -215,7 +475,7 @@ body {
 }
 
 .Griddle:hover .overlay hr {
-  width: 80px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -225,7 +485,7 @@ body {
 }
 
 .Dishwasher:hover .overlay hr {
-  width: 115px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -235,7 +495,7 @@ body {
 }
 
 .Desktop:hover .overlay hr {
-  width: 100px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -255,17 +515,7 @@ body {
 }
 
 .CeilingFan:hover .overlay hr {
-  width: 55px;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
-.Toaster {
-  background-image: url(/images/Toaster.jpeg);
-}
-
-.Toaster:hover .overlay hr {
-  width: 103px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -275,7 +525,7 @@ body {
 }
 
 .Refrigerator:hover .overlay hr {
-  width: 135px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -285,7 +535,7 @@ body {
 }
 
 .CoffeeMaker:hover .overlay hr {
-  width: 90px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -295,7 +545,7 @@ body {
 }
 
 .TvLed:hover .overlay hr {
-  width: 90px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -305,7 +555,7 @@ body {
 }
 
 .Dryer:hover .overlay hr {
-  width: 180px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -315,7 +565,7 @@ body {
 }
 
 .Heating:hover .overlay hr {
-  width: 123px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -325,8 +575,10 @@ body {
 }
 
 .AirConditioning:hover .overlay hr {
-  width: 150px;
+  width: 50%;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
+
+/* End Cards */
 /*# sourceMappingURL=main.css.map */
