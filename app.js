@@ -98,6 +98,47 @@ document.querySelector('.priceHigh').innerHTML = max.toFixed(3);
 document.querySelector('.highDay').innerHTML = maxHour;
 // get data evry 5 minutes
 setInterval(getMax, 300000);
+
+// get all data of all day in the moment of the consult
+async function getAll() {
+  try {
+    const response = await fetch(
+      'https://api.preciodelaluz.org/v1/prices/all?zone=PCB'
+    );
+    const data = await response.json();
+    // save the data in the local storage
+    localStorage.setItem('all', JSON.stringify(data));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+getAll();
+
+// get the data from the local storage
+const dataAll = JSON.parse(localStorage.getItem('all'));
+for (const key in dataAll) {
+  if (Object.hasOwnProperty.call(dataAll, key)) {
+    const element = dataAll[key];
+    const hour = element.hour;
+    const price = element.price / 1000;
+    console.log(hour, price);
+    const hourPrice = hAdd(hour);
+    const priceHour = document.createElement('p');
+    priceHour.innerHTML = `${hourPrice} : ${price.toFixed(3)} €/kWh`;
+    document.querySelector('.allDay').appendChild(priceHour);
+    if (price.toFixed(3) <= 0.215) {
+      priceHour.style.backgroundColor = '#67c774c7';
+    } else if (price.toFixed(3) < 0.25) {
+      priceHour.style.backgroundColor = '#d8df80';
+    } else {
+      priceHour.style.backgroundColor = '#DA7F8F';
+    }
+  }
+}
+// get data evry 5 minutes
+setInterval(getAll, 300000);
+
 // price of electric appliances in the moment of the consult
 function getWh() {
   const wh = document.querySelectorAll('.whPrice');
@@ -109,7 +150,7 @@ function getWh() {
 }
 getWh();
 
-// get the current time javascript
+// the current time
 function getTime() {
   let date = new Date();
   let hours = date.getHours();

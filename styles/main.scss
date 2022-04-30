@@ -10,11 +10,13 @@ $main-color: #E3FDFD;
 $main-color-dark: #71C9CE;
 $main-color-light: #A6E3E9;
 $main-color-dark-light: #CBF1F5;
-$main-color-green: #A5E1AD;
+$main-color-green: #67c774c7;
 $main-color-red: #DA7F8F;
+$main-color-yellow: #d8df80;
+$color-gray: rgb(53, 49, 49);
 $card-background-color: rgba(	203, 241, 245, .9);
 body{
-    width: 100vw;
+    
     background-color: $main-color;
 }
 
@@ -53,6 +55,9 @@ header{
         padding: 1rem;
         @media (min-width: 768px){
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        @media (max-width: 1024px){
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
 
         .priceActual{
@@ -109,14 +114,12 @@ header{
             font-size: 3vmin;
             font-weight: 700;
             border-bottom: 1px solid ;
-            @media (min-width: 1024px){
-              font-size: 2.8vmin;
-            }
           }
           span{
             font-size: 3vmin;
             padding-top: 1rem;
             color: $main-color-dark;
+            font-weight: 500;
           }
           p{
             font-size: 2vmin;
@@ -148,14 +151,12 @@ header{
             font-size: 3vmin;
             font-weight: 700;
             border-bottom: 1px solid ;
-            @media (min-width: 1024px){
-              font-size: 2.4vmin;
-            }
           }
           span{
             font-size: 3vmin;
             padding-top: 1rem;
             color: $main-color-dark;
+            font-weight: 500;
           }
           p{
             font-size: 2vmin;
@@ -191,14 +192,12 @@ header{
             font-weight: 700;
             color: $main-color-dark;
             border-bottom: 1px solid ;
-            @media (min-width: 1024px){
-              font-size: 2.5vmin;
-            }
           }
           span{
             font-size: 3vmin;
             padding-top: 1rem;
             color: $main-color-dark;
+            font-weight: 500;
           }
           p{
             font-size: 2vmin;
@@ -220,7 +219,36 @@ header{
     
 }
 
+/* Start all hours of the day */
+.hours{
+  h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $main-color-dark;
+  }
+  .allDay{
+   display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem 4rem 1rem 4rem;
+    @media (max-width: 768px){
+      padding: 1rem 1rem;
+    }
+   
+    p{
+      font-size: 3vmin;
+      color: $color-gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem; 
+    }
+  }
 
+}
+
+/* End all hours of the day  */
 
 
 
@@ -354,132 +382,35 @@ header{
   .Griddle{
     background-image: url(/images/Griddle.jpg);
 }
-.Griddle:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
 .Dishwasher{
     background-image: url(/images/Dishwasher.jpg);
 }
-
-.Dishwasher:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
 .Desktop{
     background-image: url(/images/Desktop.jpg);
 }
-
-.Desktop:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
 .Hairdryer{
     background-image: url(/images/Hairdryer.jpg);
 }
-
-.Hairdryer:hover .overlay {
-    & hr {
-        width: 75px;
-        transition-delay: 0.4s;
-      }
-}
-
 .CeilingFan{
     background-image: url(/images/Ceilingfan.webp);
 }
-
-
-.CeilingFan:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
-
 .Refrigerator{
     background-image: url(/images/Refrigerator.webp);
 }
-
-
-.Refrigerator:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
 .CoffeeMaker{
     background-image: url(/images/Coffeemaker.webp);
 }
-
-
-
-.CoffeeMaker:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
 .TvLed{
     background-image: url(/images/TVLED.jpeg);
 }
-
-
-
-.TvLed:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
 .Dryer{
     background-image: url(/images/Dryer.webp);
 }
-
-
-
-.Dryer:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
-
 .Heating{
     background-image: url(/images/Heating.jpg);
-}
-
-
-
-.Heating:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
 }
 .AirConditioning{
     background-image: url(/images/Airconditioning.jpg);
 }
 
-
-
-.AirConditioning:hover .overlay {
-    & hr {
-        width: 50%;
-        transition-delay: 0.4s;
-      }
-}
 /* End Cards */

@@ -9,7 +9,6 @@
 }
 
 body {
-  width: 100vw;
   background-color: #E3FDFD;
 }
 
@@ -73,6 +72,13 @@ header .hero {
 }
 
 @media (min-width: 768px) {
+  header .hero {
+    -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
   header .hero {
     -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -163,16 +169,11 @@ header .hero .Medio h2 {
   border-bottom: 1px solid;
 }
 
-@media (min-width: 1024px) {
-  header .hero .Medio h2 {
-    font-size: 2.8vmin;
-  }
-}
-
 header .hero .Medio span {
   font-size: 3vmin;
   padding-top: 1rem;
   color: #71C9CE;
+  font-weight: 500;
 }
 
 header .hero .Medio p {
@@ -220,30 +221,25 @@ header .hero .Low h2 {
   border-bottom: 1px solid;
 }
 
-@media (min-width: 1024px) {
-  header .hero .Low h2 {
-    font-size: 2.4vmin;
-  }
-}
-
 header .hero .Low span {
   font-size: 3vmin;
   padding-top: 1rem;
   color: #71C9CE;
+  font-weight: 500;
 }
 
 header .hero .Low p {
   font-size: 2vmin;
   font-weight: 700;
   padding: 1rem 0 0 0;
-  color: #A5E1AD;
+  color: #67c774c7;
 }
 
 header .hero .Low p span {
   font-size: 3.5vmin;
   font-weight: 700;
   padding: 0 .3rem;
-  color: #A5E1AD;
+  color: #67c774c7;
 }
 
 header .hero .Low p i {
@@ -282,16 +278,11 @@ header .hero .High h2 {
   border-bottom: 1px solid;
 }
 
-@media (min-width: 1024px) {
-  header .hero .High h2 {
-    font-size: 2.5vmin;
-  }
-}
-
 header .hero .High span {
   font-size: 3vmin;
   padding-top: 1rem;
   color: #71C9CE;
+  font-weight: 500;
 }
 
 header .hero .High p {
@@ -312,6 +303,51 @@ header .hero .High p i {
   font-size: 3vmin;
 }
 
+/* Start all hours of the day */
+.hours h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #71C9CE;
+}
+
+.hours .allDay {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  padding: 1rem 4rem 1rem 4rem;
+}
+
+@media (max-width: 768px) {
+  .hours .allDay {
+    padding: 1rem 1rem;
+  }
+}
+
+.hours .allDay p {
+  font-size: 3vmin;
+  color: #353131;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+}
+
+/* End all hours of the day  */
 /* Start Cards */
 .title {
   display: -webkit-box;
@@ -474,110 +510,44 @@ header .hero .High p i {
   background-image: url(/images/Griddle.jpg);
 }
 
-.Griddle:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
 .Dishwasher {
   background-image: url(/images/Dishwasher.jpg);
-}
-
-.Dishwasher:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
 }
 
 .Desktop {
   background-image: url(/images/Desktop.jpg);
 }
 
-.Desktop:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
 .Hairdryer {
   background-image: url(/images/Hairdryer.jpg);
-}
-
-.Hairdryer:hover .overlay hr {
-  width: 75px;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
 }
 
 .CeilingFan {
   background-image: url(/images/Ceilingfan.webp);
 }
 
-.CeilingFan:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
 .Refrigerator {
   background-image: url(/images/Refrigerator.webp);
-}
-
-.Refrigerator:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
 }
 
 .CoffeeMaker {
   background-image: url(/images/Coffeemaker.webp);
 }
 
-.CoffeeMaker:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
 .TvLed {
   background-image: url(/images/TVLED.jpeg);
-}
-
-.TvLed:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
 }
 
 .Dryer {
   background-image: url(/images/Dryer.webp);
 }
 
-.Dryer:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
 .Heating {
   background-image: url(/images/Heating.jpg);
 }
 
-.Heating:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
 .AirConditioning {
   background-image: url(/images/Airconditioning.jpg);
-}
-
-.AirConditioning:hover .overlay hr {
-  width: 50%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
 }
 
 /* End Cards */
