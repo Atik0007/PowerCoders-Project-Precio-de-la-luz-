@@ -1,7 +1,6 @@
 `use strict`;
 
 //  precio en el momento de la consulta
-
 async function getNow() {
   try {
     const response = await fetch(
@@ -9,7 +8,7 @@ async function getNow() {
     );
     const data = await response.json();
     // save the data in the local storage
-    localStorage.setItem('now', JSON.stringify(data));
+    window.localStorage.setItem('now', JSON.stringify(data));
     return data;
   } catch (error) {
     console.log(error);
@@ -21,12 +20,10 @@ const dataNow = JSON.parse(localStorage.getItem('now'));
 let now = dataNow.price / 1000; // change the price of €/Mwh to €/kWh
 // show the price in the page
 document.querySelector('.Price').innerHTML = now.toFixed(3);
-
-// get data evry 5 minutes
+// get data every 5 minutes
 setInterval(getNow, 300000);
 
 // AVERAGE PRICE OF THE DAY
-
 async function getAvg() {
   try {
     const response = await fetch(
@@ -49,7 +46,6 @@ document.querySelector('.priceMedio').innerHTML = avg.toFixed(3);
 setInterval(getAvg, 300000);
 
 // LOWEST PRICE OF THE DAY
-
 async function getMin() {
   try {
     const response = await fetch(
@@ -67,8 +63,7 @@ getMin();
 // get the data from the local storage
 const dataMin = JSON.parse(localStorage.getItem('min'));
 let min = dataMin.price / 1000; // change the price of €/Mwh to €/kWh
-let minHour = hAdd(dataMin.hour);
-
+let minHour = hAdd(dataMin.hour); // modify the letter of the hour
 document.querySelector('.priceLow').innerHTML = min.toFixed(3);
 document.querySelector('.lowDay').innerHTML = minHour;
 // get data evry 5 minutes
@@ -122,7 +117,6 @@ for (const key in dataAll) {
     const element = dataAll[key];
     const hour = element.hour;
     const price = element.price / 1000;
-    console.log(hour, price);
     const hourPrice = hAdd(hour);
     const priceHour = document.createElement('p');
     priceHour.innerHTML = `${hourPrice} : ${price.toFixed(3)} €/kWh`;
@@ -142,6 +136,7 @@ setInterval(getAll, 300000);
 // price of electric appliances in the moment of the consult
 function getWh() {
   const wh = document.querySelectorAll('.whPrice');
+  // take the data and convert it to €/kWh
   wh.forEach((element) => {
     const whnumber = element.innerHTML;
     const price = ((now / 1000) * whnumber).toFixed(3);
@@ -250,12 +245,11 @@ function insert(str, index, value) {
   return str.substr(0, index) + value + str.substr(index);
 }
 insert();
-
 function hAdd(str) {
-  let h = insert(str, 2, 'h');
-  let hh = insert(h, 6, 'h');
-  let spaceOne = insert(hh, 3, ' ');
-  let spaceTwo = insert(spaceOne, 5, ' ');
+  let h = insert(str, 2, 'h'); // Output '00h-00'
+  let hh = insert(h, 6, 'h'); // Output '00h-00h'
+  let spaceOne = insert(hh, 3, ' '); // Output '00h -00h'
+  let spaceTwo = insert(spaceOne, 5, ' '); // Output '00h - 00h'
   return spaceTwo;
 }
 hAdd();

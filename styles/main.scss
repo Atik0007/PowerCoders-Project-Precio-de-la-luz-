@@ -19,8 +19,6 @@ body{
     
     background-color: $main-color;
 }
-
-
 header{
   height: 100%;
   display: flex;
@@ -43,23 +41,21 @@ header{
     span{
       font-size: 5vmin;
       color: $main-color-dark;
+      padding: 0 0 1rem 0;
     }
   }
-  
-   
     .hero{
         width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         grid-gap: 1rem;
-        padding: 1rem;
+        padding: 0 1rem;
         @media (min-width: 768px){
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
         @media (max-width: 1024px){
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
-
         .priceActual{
           height: 7rem;
           display: flex;
@@ -96,7 +92,6 @@ header{
             }
           }
         }
-
         .Medio{
           height: 7rem;
           display: flex;
@@ -133,7 +128,6 @@ header{
             }
           }
         }
-
         .Low{
           height: 7rem;
           display: flex;
@@ -171,7 +165,6 @@ header{
             }
             i{
               font-size: 3vmin;
-              
             }
           }
         }
@@ -218,24 +211,24 @@ header{
     }
     
 }
-
 /* Start all hours of the day */
 .hours{
+  padding: 2rem 0;
   h2{
     display: flex;
     justify-content: center;
     align-items: center;
     color: $main-color-dark;
+    padding-bottom: 1rem;
   }
   .allDay{
    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1rem;
-    padding: 1rem 4rem 1rem 4rem;
+    padding:1rem 4rem;
     @media (max-width: 768px){
       padding: 1rem 1rem;
     }
-   
     p{
       font-size: 3vmin;
       color: $color-gray;
@@ -245,13 +238,8 @@ header{
       border-radius: 1rem; 
     }
   }
-
 }
-
 /* End all hours of the day  */
-
-
-
 /* Start Cards */ 
 .title{
  display: flex;
@@ -270,7 +258,6 @@ header{
       padding: 1rem 1rem;
     }
 }
-
 .container {
     width: 100%;
     height: 200px;
@@ -283,7 +270,6 @@ header{
           box-shadow: 0 0 5px $main-color-dark;
           color: $main-color-dark;
     }
-  
   .overlay {
     width: 100%;
     height: 100%;
@@ -295,17 +281,15 @@ header{
     border-radius: 5px;
     font-family: 'Playfair Display', serif;
   }
-  
-  
   .items {
     padding-left: 1rem;
   }
-  
   .head {
     font-size: 1.5rem;
     letter-spacing: 1px; 
     transform: translateY(40px);
     transition: all 0.7s;
+    padding-top: 1rem;
     hr {
       display: block;
       width: 0;
@@ -315,7 +299,6 @@ header{
       transition: all .5s;
     }
   }
-  
   .whValue {
     font-size: .8rem;
     line-height: 1.5;
@@ -328,13 +311,11 @@ header{
     .wh{
         font-size: 1rem;
         color: $main-color-dark;
-        
     }
     p {
       font-size: .7rem;
     }
   }
-  
   .cart {
     opacity: 0;
     transform: translateY(40px);
@@ -352,33 +333,26 @@ header{
         }
     }
   }
-  
   .container:hover .overlay {
     opacity: 1;
     & .head {
       transform: translateY(0px);
     }
-    
     & hr {
       width: 50%;
       transition-delay: 0.4s;
-      
     }
-    
     & .whValue {
       transform: translateY(0px);
       transition-delay: 0.3s;
       opacity: 1;
     }
-    
     & .cart {
       transform: translateY(0px);
       transition-delay: 0.6s;
       opacity: 1;
     }
   }
-
-
   .Griddle{
     background-image: url(/images/Griddle.jpg);
 }
@@ -412,5 +386,4 @@ header{
 .AirConditioning{
     background-image: url(/images/Airconditioning.jpg);
 }
-
 /* End Cards */

@@ -59,6 +59,7 @@ header .position h1 {
 header .position span {
   font-size: 5vmin;
   color: #71C9CE;
+  padding: 0 0 1rem 0;
 }
 
 header .hero {
@@ -68,7 +69,7 @@ header .hero {
   -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 @media (min-width: 768px) {
@@ -304,6 +305,10 @@ header .hero .High p i {
 }
 
 /* Start all hours of the day */
+.hours {
+  padding: 2rem 0;
+}
+
 .hours h2 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -315,6 +320,7 @@ header .hero .High p i {
       -ms-flex-align: center;
           align-items: center;
   color: #71C9CE;
+  padding-bottom: 1rem;
 }
 
 .hours .allDay {
@@ -323,7 +329,7 @@ header .hero .High p i {
   -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 1rem;
-  padding: 1rem 4rem 1rem 4rem;
+  padding: 1rem 4rem;
 }
 
 @media (max-width: 768px) {
@@ -418,6 +424,7 @@ header .hero .High p i {
           transform: translateY(40px);
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
+  padding-top: 1rem;
 }
 
 .head hr {
