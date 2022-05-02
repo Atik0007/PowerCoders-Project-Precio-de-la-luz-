@@ -17,9 +17,9 @@ async function getNow() {
 getNow();
 // get the data from the local storage
 const dataNow = JSON.parse(localStorage.getItem('now'));
-let now = dataNow.price / 1000; // change the price of €/Mwh to €/kWh
+let now = dataNow.price;
 // show the price in the page
-document.querySelector('.Price').innerHTML = now.toFixed(3);
+document.querySelector('.Price').innerHTML = now;
 // get data every 5 minutes
 setInterval(getNow, 300000);
 
@@ -40,8 +40,8 @@ async function getAvg() {
 getAvg();
 // get the data from the local storage
 const dataAvg = JSON.parse(localStorage.getItem('avg'));
-let avg = dataAvg.price / 1000; // change the price of €/Mwh to €/kWh
-document.querySelector('.priceMedio').innerHTML = avg.toFixed(3);
+let avg = dataAvg.price;
+document.querySelector('.priceMedio').innerHTML = avg;
 // get data evry 5 minutes
 setInterval(getAvg, 300000);
 
@@ -62,9 +62,9 @@ async function getMin() {
 getMin();
 // get the data from the local storage
 const dataMin = JSON.parse(localStorage.getItem('min'));
-let min = dataMin.price / 1000; // change the price of €/Mwh to €/kWh
+let min = dataMin.price;
 let minHour = hAdd(dataMin.hour); // modify the letter of the hour
-document.querySelector('.priceLow').innerHTML = min.toFixed(3);
+document.querySelector('.priceLow').innerHTML = min;
 document.querySelector('.lowDay').innerHTML = minHour;
 // get data evry 5 minutes
 setInterval(getMin, 300000);
@@ -87,9 +87,9 @@ getMax();
 
 // get the data from the local storage
 const dataMax = JSON.parse(localStorage.getItem('max'));
-let max = dataMax.price / 1000; // change the price of €/Mwh to €/kWh
+let max = dataMax.price;
 let maxHour = hAdd(dataMax.hour);
-document.querySelector('.priceHigh').innerHTML = max.toFixed(3);
+document.querySelector('.priceHigh').innerHTML = max;
 document.querySelector('.highDay').innerHTML = maxHour;
 // get data evry 5 minutes
 setInterval(getMax, 300000);
@@ -116,14 +116,14 @@ for (const key in dataAll) {
   if (Object.hasOwnProperty.call(dataAll, key)) {
     const element = dataAll[key];
     const hour = element.hour;
-    const price = element.price / 1000;
+    const price = element.price / 1000; // convert to €/kWh
     const hourPrice = hAdd(hour);
     const priceHour = document.createElement('p');
     priceHour.innerHTML = `${hourPrice} : ${price.toFixed(3)} €/kWh`;
     document.querySelector('.allDay').appendChild(priceHour);
-    if (price.toFixed(3) <= 0.215) {
+    if (price.toFixed(3) <= 0.26) {
       priceHour.style.backgroundColor = '#67c774c7';
-    } else if (price.toFixed(3) < 0.25) {
+    } else if (price.toFixed(3) < 0.29) {
       priceHour.style.backgroundColor = '#d8df80';
     } else {
       priceHour.style.backgroundColor = '#DA7F8F';
@@ -139,8 +139,8 @@ function getWh() {
   // take the data and convert it to €/kWh
   wh.forEach((element) => {
     const whnumber = element.innerHTML;
-    const price = ((now / 1000) * whnumber).toFixed(3);
-    element.innerHTML = price;
+    const price = (now / 1000000) * whnumber;
+    element.innerHTML = price.toFixed(3);
   });
 }
 getWh();
@@ -235,7 +235,6 @@ function getTime() {
   document.querySelector('.dayActual').innerHTML =
     daySpanish + ' ' + date.getDate() + '  ' + monthSpanish + '  ' + year;
 }
-
 getTime();
 // evry second change the time
 setInterval(getTime, 1000);
