@@ -66,6 +66,8 @@ header .hero {
   width: 100%;
   display: -ms-grid;
   display: grid;
+  -ms-grid-row-align: center;
+      align-self: center;
   -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
@@ -74,20 +76,26 @@ header .hero {
 
 @media (min-width: 768px) {
   header .hero {
-    -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
 @media (max-width: 1024px) {
   header .hero {
-    -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    -ms-grid-columns: (minmax(200px, 1fr))[1];
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  header .hero {
+    -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
 header .hero .priceActual {
-  height: 7rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -104,6 +112,7 @@ header .hero .priceActual {
   border: 1px solid #71C9CE;
   border-radius: 1rem;
   background-color: #CBF1F5;
+  padding: 1rem 0;
 }
 
 header .hero .priceActual:hover {
@@ -139,7 +148,6 @@ header .hero .priceActual p span {
 }
 
 header .hero .Medio {
-  height: 7rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -191,7 +199,6 @@ header .hero .Medio p span {
 }
 
 header .hero .Low {
-  height: 7rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -248,7 +255,6 @@ header .hero .Low p i {
 }
 
 header .hero .High {
-  height: 7rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -310,6 +316,8 @@ header .hero .High p i {
 }
 
 .hours h2 {
+  width: 100%;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -335,6 +343,27 @@ header .hero .High p i {
 @media (max-width: 768px) {
   .hours .allDay {
     padding: 1rem 1rem;
+  }
+}
+
+@media (min-width: 1465px) {
+  .hours .allDay {
+    -ms-grid-columns: (minmax(250px, 1fr))[4];
+        grid-template-columns: repeat(4, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 2291px) {
+  .hours .allDay {
+    -ms-grid-columns: (minmax(250px, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 535px) {
+  .hours .allDay {
+    -ms-grid-columns: (minmax(250px, 1fr))[1];
+        grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
 }
 

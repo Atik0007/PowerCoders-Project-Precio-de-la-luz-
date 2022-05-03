@@ -47,17 +47,20 @@ header{
     .hero{
         width: 100%;
         display: grid;
+        align-self: center;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         grid-gap: 1rem;
         padding: 0 1rem;
         @media (min-width: 768px){
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
         @media (max-width: 1024px){
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(1, minmax(200px, 1fr));
+        }
+        @media (min-width: 1024px){
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
         .priceActual{
-          height: 7rem;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -65,10 +68,12 @@ header{
           border: 1px solid $main-color-dark;
           border-radius: 1rem;
           background-color: $main-color-dark-light;
+          padding:  1rem 0;
           &:hover{
             box-shadow: 0 0 0.5rem 0.5rem $main-color-dark;
           }
           h2{
+            
             color: $main-color-dark;
             font-size: 3vmin;
             font-weight: 700;
@@ -93,7 +98,6 @@ header{
           }
         }
         .Medio{
-          height: 7rem;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -129,7 +133,6 @@ header{
           }
         }
         .Low{
-          height: 7rem;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -169,7 +172,6 @@ header{
           }
         }
         .High{
-          height: 7rem;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -215,6 +217,8 @@ header{
 .hours{
   padding: 2rem 0;
   h2{
+    width: 100%;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,6 +232,15 @@ header{
     padding:1rem 4rem;
     @media (max-width: 768px){
       padding: 1rem 1rem;
+    }
+  @media (min-width: 1465px){
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    }
+    @media (max-width: 2291px){
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+    @media (max-width: 535px){
+      grid-template-columns: repeat(1, minmax(250px, 1fr));
     }
     p{
       font-size: 3vmin;
