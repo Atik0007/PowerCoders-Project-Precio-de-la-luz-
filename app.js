@@ -1,125 +1,146 @@
 `use strict`;
 
-//  precio en el momento de la consulta
-async function getNow() {
+//SACAR LA INFORMACION DE LA API
+const url = `https://api.allorigins.win/get?url=https://api.preciodelaluz.org/v1/prices/all?zone=PCB`;
+function getData() {
   try {
-    const response = await fetch(
-      'https://api.preciodelaluz.org/v1/prices/now?zone=PCB'
-    );
-    const data = await response.json();
-    // save the data in the local storage
-    window.localStorage.setItem('now', JSON.stringify(data));
-    return data;
+    fetch(url)
+      .then((response) => response.json())
+      .then((response) => {
+        let { contents } = response;
+        const date = new Date();
+        localStorage.setItem('contents', contents);
+        localStorage.setItem('time', date.getTime());
+        return { contents, date };
+      });
   } catch (error) {
     console.log(error);
   }
 }
-getNow();
-// get the data from the local storage
-const dataNow = JSON.parse(localStorage.getItem('now'));
-let now = dataNow.price;
-// show the price in the page
-document.querySelector('.Price').innerHTML = now;
-// get data every 5 minutes
-setInterval(getNow, 300000);
+getData();
 
-// AVERAGE PRICE OF THE DAY
-async function getAvg() {
-  try {
-    const response = await fetch(
-      'https://api.preciodelaluz.org/v1/prices/avg?zone=PCB'
-    );
-    const data = await response.json();
-    // save the data in the local storage
-    localStorage.setItem('avg', JSON.stringify(data));
-    return data;
-  } catch (error) {
-    console.log(error);
+// function to get data evry 5 min and save it in local storage
+function getDataEvery5Min() {
+  setInterval(() => {
+    getData();
+  }, 300000);
+}
+getDataEvery5Min();
+
+// function to get data from local storage
+function getDataFromLocalStorage() {
+  const data = localStorage.getItem('contents');
+  const dataPrse = JSON.parse(data);
+  return dataPrse;
+}
+getDataFromLocalStorage();
+
+// // GET THE INFORMATION OF THE TIME IN WHICH WE ARE
+
+function getTimeInfo() {
+  const hours = new Date().getHours();
+  let textHours = hours;
+  let secendTextHours = hours + 1;
+  if (hours < 10) {
+    textHours = `0${hours}`;
+    secendTextHours = `0${hours + 1}`;
+  }
+  const AllHours = [`${textHours}-${secendTextHours}`];
+  return AllHours;
+}
+getTimeInfo();
+
+// map the hour to get the information of the time
+function filterDataActual() {
+  const AllHours = getTimeInfo();
+  const data = getDataFromLocalStorage();
+  // for in
+  for (let i in data) {
+    for (let j in AllHours) {
+      if (data[i].hour === AllHours[j]) {
+        return data[i];
+      }
+    }
   }
 }
-getAvg();
-// get the data from the local storage
-const dataAvg = JSON.parse(localStorage.getItem('avg'));
-let avg = dataAvg.price;
-document.querySelector('.priceMedio').innerHTML = avg;
-// get data evry 5 minutes
-setInterval(getAvg, 300000);
+filterDataActual();
 
-// LOWEST PRICE OF THE DAY
-async function getMin() {
-  try {
-    const response = await fetch(
-      'https://api.preciodelaluz.org/v1/prices/min?zone=PCB'
-    );
-    const data = await response.json();
-    // save the data in the local storage
-    localStorage.setItem('min', JSON.stringify(data));
-    return data;
-  } catch (error) {
-    console.log(error);
+// type the price of the hour
+function typePrice() {
+  const data = filterDataActual();
+  const price = document.querySelector('.Price');
+  price.innerHTML = `${data.price}`;
+}
+typePrice();
+
+// get the higtest price
+function getHighestPrice() {
+  const data = getDataFromLocalStorage();
+  let highestPrice = 0;
+  for (let i in data) {
+    if (data[i].price > highestPrice) {
+      highestPrice = data[i].price;
+      const highestPriceElement = document.querySelector('.priceHigh');
+      highestPriceElement.innerHTML = `${highestPrice}`;
+    }
+  }
+  // het the hour of the highest price
+  for (let i in data) {
+    if (data[i].price === highestPrice) {
+      const highestPriceElement = document.querySelector('.highDay');
+      highestPriceElement.innerHTML = `${hAdd(data[i].hour)}`;
+    }
   }
 }
-getMin();
-// get the data from the local storage
-const dataMin = JSON.parse(localStorage.getItem('min'));
-let min = dataMin.price;
-let minHour = hAdd(dataMin.hour); // modify the letter of the hour
-document.querySelector('.priceLow').innerHTML = min;
-document.querySelector('.lowDay').innerHTML = minHour;
-// get data evry 5 minutes
-setInterval(getMin, 300000);
-// HIGHEST PRICE OF THE DAY
+getHighestPrice();
 
-async function getMax() {
-  try {
-    const response = await fetch(
-      'https://api.preciodelaluz.org/v1/prices/max?zone=PCB'
-    );
-    const data = await response.json();
-    // save the data in the local storage
-    localStorage.setItem('max', JSON.stringify(data));
-    return data;
-  } catch (error) {
-    console.log(error);
+// get the lowest price
+function getLowestPrice() {
+  const data = getDataFromLocalStorage();
+  let lowestPrice = 0;
+  for (let i in data) {
+    for (let j in data) {
+      if (data[i].price < data[j].price) {
+        lowestPrice = data[i].price;
+        const lowestPriceElement = document.querySelector('.priceLow');
+        lowestPriceElement.innerHTML = `${lowestPrice}`;
+      }
+    }
+  }
+  // het the hour of the lowest price
+  for (let i in data) {
+    if (data[i].price === lowestPrice) {
+      const lowestPriceElement = document.querySelector('.lowDay');
+      lowestPriceElement.innerHTML = `${hAdd(data[i].hour)}`;
+    }
   }
 }
-getMax();
+getLowestPrice();
 
-// get the data from the local storage
-const dataMax = JSON.parse(localStorage.getItem('max'));
-let max = dataMax.price;
-let maxHour = hAdd(dataMax.hour);
-document.querySelector('.priceHigh').innerHTML = max;
-document.querySelector('.highDay').innerHTML = maxHour;
-// get data evry 5 minutes
-setInterval(getMax, 300000);
-
-// get all data of all day in the moment of the consult
-async function getAll() {
-  try {
-    const response = await fetch(
-      'https://api.preciodelaluz.org/v1/prices/all?zone=PCB'
-    );
-    const data = await response.json();
-    // save the data in the local storage
-    localStorage.setItem('all', JSON.stringify(data));
-    return data;
-  } catch (error) {
-    console.log(error);
+// get the average price
+function getAveragePrice() {
+  const data = getDataFromLocalStorage();
+  let averagePrice = [];
+  for (let i in data) {
+    averagePrice.push(data[i].price);
   }
+  const averagePriceSum =
+    averagePrice.reduce((a, b) => a + b, 0) / averagePrice.length;
+  // type in the average price
+  const averagePriceElement = document.querySelector('.priceAverage');
+  averagePriceElement.innerHTML = `${averagePriceSum.toFixed(2)}`;
 }
-getAll();
+getAveragePrice();
 
-// get the data from the local storage
-const dataAll = JSON.parse(localStorage.getItem('all'));
-for (const key in dataAll) {
-  if (Object.hasOwnProperty.call(dataAll, key)) {
-    const element = dataAll[key];
-    const hour = element.hour;
-    const price = element.price / 1000; // convert to €/kWh
-    const hourPrice = hAdd(hour);
+// type in evry hour the price
+function typePriceEveryHour() {
+  const data = getDataFromLocalStorage();
+  for (let i in data) {
+    const price = data[i].price / 1000;
+    const hour = data[i].hour;
+    const hourType = hAdd(hour);
     const priceHour = document.createElement('p');
-    priceHour.innerHTML = `${hourPrice} : ${price.toFixed(3)} €/kWh`;
+    priceHour.innerHTML = `${hourType} : ${price.toFixed(3)} €/kWh`;
     document.querySelector('.allDay').appendChild(priceHour);
     if (price.toFixed(3) <= 0.26) {
       priceHour.style.backgroundColor = '#67c774c7';
@@ -130,16 +151,17 @@ for (const key in dataAll) {
     }
   }
 }
-// get data evry 5 minutes
-setInterval(getAll, 300000);
+typePriceEveryHour();
 
-// price of electric appliances in the moment of the consult
+// calculate the price of w of evry mwh
 function getWh() {
+  const data = filterDataActual();
+  const priceNow = data.price;
   const wh = document.querySelectorAll('.whPrice');
   // take the data and convert it to €/kWh
   wh.forEach((element) => {
     const whnumber = element.innerHTML;
-    const price = (now / 1000000) * whnumber;
+    const price = (priceNow / 1000000) * whnumber;
     element.innerHTML = price.toFixed(3);
   });
 }
