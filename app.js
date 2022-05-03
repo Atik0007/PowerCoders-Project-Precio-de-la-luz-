@@ -161,7 +161,7 @@ function getWh() {
   // take the data and convert it to €/kWh
   wh.forEach((element) => {
     const whnumber = element.innerHTML;
-    const price = (priceNow / 1000000) * whnumber;
+    const price = (priceNow * whnumber) / 1000;
     element.innerHTML = price.toFixed(3);
   });
 }
